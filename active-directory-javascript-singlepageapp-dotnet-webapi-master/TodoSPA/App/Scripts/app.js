@@ -1,6 +1,6 @@
 ﻿
 function getaccessToken() {
-    /*
+    
     var currentURL = window.location.href;
     var arrhash = currentURL.split("#");
     var arrAmp;
@@ -15,8 +15,7 @@ function getaccessToken() {
         return API(accessToken);
     } else {
         console.log("URL NOT AUTHORIZED");
-    }*/
-    console.log("WORKING");
+    }
 
 }
 function getRoom() {
