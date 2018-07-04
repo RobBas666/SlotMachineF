@@ -1,43 +1,14 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <script src="App/Scripts/admin.js"></script>
-    <script src="App/Scripts/help.js"></script>
-    <script src="App/Scripts/app.js"></script>
-    <script src="App/Scripts/main.js"></script>
-    <script src="App/Scripts/init.js"></script>
-
-    <style type="text/css">
-        table {
-            width: 100%;
-            text-align: center;
-            height: 100%;
-            position: absolute;
-            border-spacing: 0;
-        }
-
-        td {
-            color: white;
-            font-size: 50px;
-            width: 20%;
-        }
-    </style>
+    <meta charset="utf-8" />
+    <title></title>
 </head>
-<body onload="checkInit()" style="background-color: #808080;">
-    <table>
-        <tr>
-            <td style="background-color: #e63946" onclick="changeRoom('15000b65-4d66-4d8a-9a03-980bed8be18c')">Assembly - VC</td>
-            <td style="background-color: #f1faee; color: black;" onclick="changeRoom('b579ed58-df35-4904-9abc-01667dfe2158')">Collaboration Center Room</td>
-            <td style="background-color: #a8dadc" onclick="changeRoom('00262abb-131e-48c3-a8aa-0be171977ab8')">Python</td>
-            <td style="background-color: #457b9d">C# - VC</td>
-            <td style="background-color: #1d3557">Other</td>
-        </tr>
-    </table>
-
-    <div>
-        <form action="admin.html">
-            <input type="submit" value="Admin" />
-        </form>
-    </div>
+<body>
+    Hello
+    <button onclick="changeRoomAdmin('00262abb-131e-48c3-a8aa-0be171977ab8')">Pthyon</button>
+    <button onclick="changeRoomAdmin('15000b65-4d66-4d8a-9a03-980bed8be18c')">Assembly - VC</button>
+    <button onclick="changeRoomAdmin('b579ed58-df35-4904-9abc-01667dfe2158')">Collaboration Centre Room</button>
+    <script src="App/Scripts/admin.js"></script>
 </body>
 </html>

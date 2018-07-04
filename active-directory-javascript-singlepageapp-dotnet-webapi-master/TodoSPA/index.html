@@ -1,203 +1,85 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <!-- <title>Todo List: a SPA sample demonstrating Azure AD and ADAL JS</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/App/Content/app.css"> -->
+</head>
+<body onload="checkInit()">
+    <h1>hello</h1>
+    <button onclick="getObject()">press</button>
+    <br />
+    <!--
+    <button onclick="populateTable('15000b65-4d66-4d8a-9a03-980bed8be18c')">logout</button>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#Home">ADAL JS Sample</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/#Home">Home</a></li>
+                    <li><a href="/#TodoList">Todo List</a></li>
+                    <li><a href="/#UserData">User</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="app-user navbar-text"></li>
+                    <li><a href="javascript:;" class="app-logout">Logout</a></li>
+                    <li><a href="javascript:;" class="app-login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+    <div class="container" role="main">
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1" style="background-color:azure">
+                <div class="page-header">
+                    <h1>Todo List</h1>
+                </div>
+                <p>This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your single page apps.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="app-error"></div>
+                <div class="panel-body"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="App/Scripts/adal.js"></script>
+    <script src="App/Scripts/app.js"></script>
+    <script src="App/Scripts/Ctrls/homeCtrl.js"></script>
+    <script src="App/Scripts/Ctrls/todoListCtrl.js"></script>
+    <script src="App/Scripts/Ctrls/userDataCtrl.js"></script>
+              -->
+    <button onclick="changeRoom('00262abb-131e-48c3-a8aa-0be171977ab8')">Python</button>
+    <button onclick="changeRoom('15000b65-4d66-4d8a-9a03-980bed8be18c')">Assembly - VC</button>
+    <button onclick="changeRoom('b579ed58-df35-4904-9abc-01667dfe2158')">Collaboration Centre Room</button>
+
+    <div>
+        <form action="admin.html">
+            <input type="submit" value="Admin" />
+        </form>
+    </div>
     <script src="App/Scripts/admin.js"></script>
     <script src="App/Scripts/help.js"></script>
     <script src="App/Scripts/app.js"></script>
     <script src="App/Scripts/main.js"></script>
     <script src="App/Scripts/init.js"></script>
-
-    <style type="text/css">
-        h1, table, td, tr {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        h1 {
-            font-size: 60px;
-        }
-
-        td {
-            padding: 20px;
-            text-align: center;
-        }
-
-        tr {
-            font-size: 30px;
-        }
-
-        table {
-            width: 95%;
-            padding: 20px;
-            background-color: white;
-            border-collapse: collapse;
-        }
-    </style>
-</head>
-<body onload="checkInit()" style="background-color: #1d3557;">
-    <h1 align="center" id="date" style="color: white;">Date</h1>
-    <h1 align="center" id="room" style="color: white;">Assembly Room</h1>  <!-- need to dynamically fetch room -->
-    <div>
-        <table id="bookingTable" align="center" border="1">
-            <tr>
-                <th>Time</th>
-                <th>Availability</th>
-            </tr>
-            <tr>
-                <td width="30%;">07:00 - 08:00</td>
-                <td id="07" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="071"></td></tr>
-                        <tr><td id="072"></td></tr>
-                        <tr><td id="073"></td></tr>
-                        <tr><td id="074"></td></tr>
-                        <!-- <tr><td id="075"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">08:00 - 09:00</td>
-                <td id="08" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="081"></td></tr>
-                        <tr><td id="082"></td></tr>
-                        <tr><td id="083"></td></tr>
-                        <tr><td id="084"></td></tr>
-                        <!-- <tr><td id="085"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">09:00 - 10:00</td>
-                <td id="09" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="091"></td></tr>
-                        <tr><td id="092"></td></tr>
-                        <tr><td id="093"></td></tr>
-                        <tr><td id="094"></td></tr>
-                        <!-- <tr><td id="095"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">10:00 - 11:00</td>
-                <td id="10" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="101"></td></tr>
-                        <tr><td id="102"></td></tr>
-                        <tr><td id="103"></td></tr>
-                        <tr><td id="104"></td></tr>
-                        <!-- <tr><td id="105"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">11:00 - 12:00</td>
-                <td id="11" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="111"></td></tr>
-                        <tr><td id="112"></td></tr>
-                        <tr><td id="113"></td></tr>
-                        <tr><td id="114"></td></tr>
-                        <!-- <tr><td id="115"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">12:00 - 13:00</td>
-                <td id="12" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="121"></td></tr>
-                        <tr><td id="122"></td></tr>
-                        <tr><td id="123"></td></tr>
-                        <tr><td id="124"></td></tr>
-                        <!-- <tr><td id="125"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">13:00 - 14:00</td>
-                <td id="13" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="131"></td></tr>
-                        <tr><td id="132"></td></tr>
-                        <tr><td id="133"></td></tr>
-                        <tr><td id="134"></td></tr>
-                        <!-- <tr><td id="135"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">14:00 - 15:00</td>
-                <td id="14" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="141"></td></tr>
-                        <tr><td id="142"></td></tr>
-                        <tr><td id="143"></td></tr>
-                        <tr><td id="144"></td></tr>
-                        <!-- <tr><td id="145"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">15:00 - 16:00</td>
-                <td id="15" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="151"></td></tr>
-                        <tr><td id="152"></td></tr>
-                        <tr><td id="153"></td></tr>
-                        <tr><td id="154"></td></tr>
-                        <!-- <tr><td id="155"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">16:00 - 17:00</td>
-                <td id="16" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="161"></td></tr>
-                        <tr><td id="162"></td></tr>
-                        <tr><td id="163"></td></tr>
-                        <tr><td id="164"></td></tr>
-                        <!-- <tr><td id="165"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">17:00 - 18:00</td>
-                <td id="17" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="171"></td></tr>
-                        <tr><td id="172"></td></tr>
-                        <tr><td id="173"></td></tr>
-                        <tr><td id="174"></td></tr>
-                        <!-- <tr><td id="175"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td width="30%;">18:00 - 19:00</td>
-                <td id="18" style="padding: 0px;">
-                    <table align="center" style="padding: 0px;">
-                        <tr><td id="181"></td></tr>
-                        <tr><td id="182"></td></tr>
-                        <tr><td id="183"></td></tr>
-                        <tr><td id="184"></td></tr>
-                        <!--
-                    <tr><td id="185"></td></tr> -->
-                    </table>
-                </td>
-            </tr>
-        </table>
-
-        <div>
-            <form action="admin.html">
-                <input type="submit" value="Admin" />
-            </form>
-        </div>
-       <!-- <script src="App/Scripts/admin.js"></script>
-        <script src="App/Scripts/app.js"></script>
-        <script src="App/Scripts/help.js"></script>
-        <script src="App/Scripts/init.js"></script>
-        <script src="App/Scripts/main.js"></script>-->
 </body>
 </html>

@@ -17,10 +17,9 @@
         console.log("got access");
         accessToken = arrAmp[0];
         accessToken = accessToken.replace("access_token=", "");
-        /*var obj = API(accessToken);
+        var obj = API(accessToken);
         //console.log("INIT OBJ: " + obj);
-        return obj;*/
-        main(currentRoom);
+        return obj;
     } else {
         Authorize();
     }
