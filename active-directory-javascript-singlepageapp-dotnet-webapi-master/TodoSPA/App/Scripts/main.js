@@ -67,7 +67,10 @@ function populateTable(code)
     var value = values.value;
     
 	for(var i = 0; i < value.length; i++)
-	{
+    {
+        var room = value[i].location.displayName;
+        document.getElementById("room").innerHTML = room;
+
 		var subject = value[i].subject;
 		var start = value[i].start;
 		var end = value[i].end;
