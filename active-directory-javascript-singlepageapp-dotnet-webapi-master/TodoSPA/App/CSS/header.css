@@ -10,8 +10,8 @@ body {
 header {
   width: 100%;
   padding: 10px 0;
-  background: #969696;
-opacity: 0.8;
+  background: #003566;
+  opacity: 0.8;
   border-bottom: 3px solid #e1e1e1;
   /* animation magic */
   transition: all 0.4s ease-in-out;
