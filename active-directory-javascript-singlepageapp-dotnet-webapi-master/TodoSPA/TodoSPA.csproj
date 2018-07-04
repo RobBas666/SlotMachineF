@@ -155,11 +155,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\Content\app.css" />
+    <Content Include="App\CSS\header.css" />
     <Content Include="App\Scripts\adal.js" />
     <Content Include="App\Scripts\app.js" />
     <Content Include="App\Scripts\Ctrls\homeCtrl.js" />
     <Content Include="App\Scripts\Ctrls\todoListCtrl.js" />
     <Content Include="App\Scripts\Ctrls\userDataCtrl.js" />
+    <Content Include="App\Scripts\header.js" />
     <Content Include="App\Scripts\help.js" />
     <Content Include="App\Scripts\init.js" />
     <Content Include="App\Scripts\admin.js" />
