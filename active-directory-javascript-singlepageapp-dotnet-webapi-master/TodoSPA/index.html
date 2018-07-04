@@ -61,30 +61,12 @@
 	<!--<button onclick="myFunction()">Try it</button> -->
 	
     <script>
-	function setCookie() {
-	   var cvalue=0;
-       document.cookie = "value =" + cvalue;
-    }
-	function getCookie() {
-     var x = document.cookie;
-     return x;
-    }
-	function checkCookie() {
-      var x = getCookie();
-    if (x != "") {
-        for(var i = 0; i < x; i++){
-		 document.getElementById("bookingTable").deleteRow(1);
-		}
-    } else {
-        setCookie();
-        }
-    }
 	
-	var myVar = setInterval(myFunction, 10000);
+	<!--var myVar = setInterval(myFunction, 5000);-->
     function myFunction() {
-	 var x = document.cookie;
-	 x=x+1;
-	 document.cookie = "value =" + x;
+	<!-- var x = localStorage.getItem("value");-->
+	 <!--x=x+1;-->
+	  <!--localStorage.setItem("value", x);-->
      document.getElementById("bookingTable").deleteRow(1);
    }
 </script>
