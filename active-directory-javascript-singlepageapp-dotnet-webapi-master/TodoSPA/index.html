@@ -41,27 +41,43 @@
             width: 95%;
             padding: 20px;
             background-color: white;
+			opacity: 0.8;
            
         }
     </style>
 </head>
-<body onload="checkInit()" >
-<!--
-    <div style="background-color: #ebebeb; width: 95%; margin: auto;">
-        <span style="position: absolute;">
-            <img src="App/Images/bbdtv.png" style="width: 15%; height: 7.5%;">
-        </span>
-        <span>
-            <h1 align="center" id="date" style="color: black;">Date</h1>
-            <h1 align="center" id="room" style="color: black;">Assembly Room</h1>
-        </span>
-    </div>
--->
+<body onload="checkInit()">
+    <!--
+        <div style="background-color: #ebebeb; width: 95%; margin: auto;">
+            <span style="position: absolute;">
+                <img src="App/Images/bbdtv.png" style="width: 15%; height: 7.5%;">
+            </span>
+            <span>
+                <h1 align="center" id="date" style="color: black;">Date</h1>
+                <h1 align="center" id="room" style="color: black;">Assembly Room</h1>
+            </span>
+        </div>
+    <<<<<<< HEAD
+        <!--<button onclick="myFunction()">Try it</button>
+
+        <script>
+
+        var myVar = setInterval(myFunction, 5000);
+        function myFunction() {
+        <!-- var x = localStorage.getItem("value");-->
+    <!--x=x+1;
+    <!--localStorage.setItem("value", x);
+    document.getElementById("bookingTable").deleteRow(1);
+    }
+    </script> -->
+
+
     <header style="text-align: center">
         <span><img src="App/Images/baseline_settings_white_48dp.png" alt="SETTINGS" height="4%" width="4%" style="float: right;padding-right: 20px" onclick=""></span><span><h1 id="date">Date</h1><h1 id="room">Room</h1></span>
 
     </header>
     <div style="padding-top: 200px">
+
         <table id="bookingTable" align="center" border="1">
             <tr>
                 <th>Time</th>
