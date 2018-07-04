@@ -38,11 +38,12 @@
             width: 95%;
             padding: 20px;
             background-color: white;
+			opacity: 0.5;
            
         }
     </style>
 </head>
-<body onload="checkInit()" >
+<body onload="checkInit();checkCookie()" >
     <div style="background-color: #ebebeb; width: 95%; margin: auto;">
         <span style="position: absolute;">
             <img src="App/Images/bbdtv.png" style="width: 15%; height: 7.5%;">
@@ -52,6 +53,36 @@
             <h1 align="center" id="room" style="color: black;">Assembly Room</h1>
         </span>
     </div>
+	<!--<button onclick="myFunction()">Try it</button> -->
+	
+    <script>
+	function setCookie() {
+	   var cvalue=0;
+       document.cookie = "value =" + cvalue;
+    }
+	function getCookie() {
+     var x = document.cookie;
+     return x;
+    }
+	function checkCookie() {
+      var x = getCookie();
+    if (x != "") {
+        for(var i = 0; i < x; i++){
+		 document.getElementById("bookingTable").deleteRow(1);
+		}
+    } else {
+        setCookie();
+        }
+    }
+	
+	var myVar = setInterval(myFunction, 10000);
+    function myFunction() {
+	 var x = document.cookie;
+	 x=x+1;
+	 document.cookie = "value =" + x;
+     document.getElementById("bookingTable").deleteRow(1);
+   }
+</script>
     <div>
         <table id="bookingTable" align="center" border="1">
             <tr>
