@@ -34,8 +34,15 @@
     </style>
 </head>
 <body onload="checkInit()" style="background-color: #1d3557;">
-    <h1 align="center" id="date" style="color: white;">Date</h1>
-    <h1 align="center" id="room" style="color: white;">Assembly Room</h1>  <!-- need to dynamically fetch room -->
+    <div style="background-color: #a8dadc; width: 95%; margin: auto;">
+        <span style="position: absolute;">
+            <img src="img/logo.png" style="width: 20%; height: 10%;">
+        </span>
+        <span>
+            <h1 align="center" id="date" style="color: black;">Date</h1>
+            <h1 align="center" id="room" style="color: black;">Assembly Room</h1>
+        </span>
+    </div>
     <div>
         <table id="bookingTable" align="center" border="1">
             <tr>
@@ -183,21 +190,17 @@
                         <tr><td id="183"></td></tr>
                         <tr><td id="184"></td></tr>
                         <!--
-                    <tr><td id="185"></td></tr> -->
+                        <tr><td id="185"></td></tr> -->
                     </table>
                 </td>
             </tr>
         </table>
+    </div>
 
-        <div>
-            <form action="admin.html">
-                <input type="submit" value="Admin" />
-            </form>
-        </div>
-       <!-- <script src="App/Scripts/admin.js"></script>
-        <script src="App/Scripts/app.js"></script>
-        <script src="App/Scripts/help.js"></script>
-        <script src="App/Scripts/init.js"></script>
-        <script src="App/Scripts/main.js"></script>-->
+    <div>
+        <form action="admin.html">
+            <input type="submit" value="Admin" />
+        </form>
+    </div>
 </body>
 </html>

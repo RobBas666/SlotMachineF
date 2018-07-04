@@ -1,9 +1,3 @@
-function main(code)
-{
-    currentDate();
-    populateTable(code);
-}
-
 var currentDate;
 
 function currentDate()
@@ -68,9 +62,10 @@ function currentDate()
 
 function populateTable(code)
 {
-    var values = changeRoom(code);
-	var value = values.value;
-
+    currentDate();
+    var values = JSON.parse(code);
+    var value = values.value;
+    
 	for(var i = 0; i < value.length; i++)
 	{
 		var subject = value[i].subject;
@@ -451,8 +446,6 @@ function populateTable(code)
 				}
 			}
 		}
-		else
-			break;
 	}
 }
 
