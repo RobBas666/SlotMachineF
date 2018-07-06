@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 body {
-    background-image: url("../Images/redwhite.png");
+    background-image: url("../Images/background.png");
     background-repeat: no-repeat;
 	background-size:cover;
 }

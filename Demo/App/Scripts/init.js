@@ -5,6 +5,7 @@ function refresh() {
 }
 //on HTML load To check if the dom storage has been set, if not go to admin.html
 function checkInit() {
+	console.log("Refreshed");
     var currentRoom = localStorage.getItem("SlotMachineRoom");
     if (currentRoom == null) {
         window.location.href = "admin.html"

@@ -57,12 +57,13 @@ function getDate() {
 }
 
 var information = new Array();
+var count;
 
 function populateTable(code) {
     getDate();
     var values = JSON.parse(code);
     var value = values.value;
-    var count = 0;
+    count = 0;
 
     modal = document.getElementById('moreInfo');
     span = document.getElementsByClassName("close")[0];
@@ -87,11 +88,113 @@ function populateTable(code) {
             var endDate = endDateTime.substring(0, 10);
             var endTime = endDateTime.substring(11, 16);
 
-            var startHour = startTime.substring(0, 2);
-            var endHour = endTime.substring(0, 2);
+            var sHour = startTime.substring(0, 2);
+            var eHour = endTime.substring(0, 2);
 
-            var startMinute = startTime.substring(3, 5);
-            var endMinute = endTime.substring(3, 5);
+            var sMinute = startTime.substring(3, 5);
+            var eMinute = endTime.substring(3, 5);
+
+            var startHour;
+            var startMinute;
+            var endHour;
+            var endMinute;
+
+            //CONVERTING START UTC TO LOCAL TIME
+            var d = new Date();
+            d.setUTCHours(sHour);
+            d.setUTCMinutes(sMinute);
+
+            var tmp = d.toLocaleTimeString();
+            var length = tmp.length;
+            var t = tmp.substring(length - 2, length);
+			
+			//console.log(tmp);
+			var g = tmp.substring(0,2);
+			//console.log(g);
+			
+			if(t != "AM" || t != "PM"){
+				if(parseInt(g) < 12){
+					t = "AM";
+				}
+				else {
+					t = "PM";
+				}
+			}
+
+            if (t == "AM") {
+				//console.log("HERE");
+                var cut = tmp.substring(0, length - 3);
+                if (cut.length == 7) {
+                    startHour = "0" + cut.substring(0, 1);
+                    startMinute = cut.substring(2, 4);
+                }
+                else {
+                    startHour = cut.substring(0, 2);
+                    startMinute = cut.substring(3, 5);
+                }
+				console.log(startHour);
+            }
+            else {
+                var cut = tmp.substring(0, length - 3);
+                if (cut.length == 7) {
+                    var num = parseInt(cut.substring(0, 1)) + 12;
+                    startHour = num.toString();
+                    startMinute = cut.substring(2, 4);
+                }
+                else {
+                    var num = parseInt(cut.substring(0, 2));
+                    if (num == 12) {
+                        startHour = cut.substring(0, 2);
+                    }
+                    else {
+                        var n = num + 12;
+                        startHour = num.toString();
+                    }
+
+                    startMinute = cut.substring(3, 5);
+                }
+            }
+
+            //CONVERTING END UTC TO LOCAL TIME
+            var d = new Date();
+            d.setUTCHours(eHour);
+            d.setUTCMinutes(eMinute);
+
+            var tmp = d.toLocaleTimeString();
+            var length = tmp.length;
+            var t = tmp.substring(length - 2, length);
+
+            if (t == "AM") {
+                var cut = tmp.substring(0, length - 3);
+                if (cut.length == 7) {
+                    endHOur = "0" + cut.substring(0, 1);
+                    endMinute = cut.substring(2, 4);
+                }
+                else {
+                    endHour = cut.substring(0, 2);
+                    endMinute = cut.substring(3, 5);
+                }
+            }
+            else {
+                var cut = tmp.substring(0, length - 3);
+                if (cut.length == 7) {
+                    var num = parseInt(cut.substring(0, 1)) + 12;
+                    endHour = num.toString();
+                    endMinute = cut.substring(2, 4);
+                }
+                else {
+                    var num = parseInt(cut.substring(0, 2));
+                    if (num == 12) {
+                        endHour = cut.substring(0, 2);
+                    }
+                    else {
+                        var n = num + 12;
+                        endHour = num.toString();
+                    }
+
+                    endMinute = cut.substring(3, 5);
+                }
+            }
 
             var array = new Array();
             array[0] = subject;
@@ -1343,7 +1446,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "05") {
@@ -1490,7 +1593,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "10"){
@@ -1631,7 +1734,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "15") {
@@ -1766,7 +1869,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "20") {
@@ -1895,7 +1998,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "25") {
@@ -2018,7 +2121,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "30") {
@@ -2135,7 +2238,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "35") {
@@ -2246,7 +2349,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "40") {
@@ -2351,7 +2454,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "45") {
@@ -2450,7 +2553,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "50") {
@@ -2543,7 +2646,7 @@ function populateTable(code) {
                         document.getElementById(temp + "12").style.color = "red";
                     }
 
-                    repeatingFunction();
+                    repeatingFunction(endHour,endMinute);
                 }
             }
             else if (startMinute == "55") {
@@ -2629,14 +2732,14 @@ function populateTable(code) {
                     document.getElementById(temp + "12").style.color = "red";
                 }
 
-                repeatingFunction();
+                repeatingFunction(endHour,endMinute);
             }
             count++;
         }
     }
 }
 
-function repeatingFunction() {
+function repeatingFunction(endHour, endMinute) {
     var tempEnd = newEnd(endHour);
 
     if (endMinute == "00") {

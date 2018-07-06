@@ -1,32 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="App/bts_css/bootstrap.min.css" />
     <link rel="stylesheet" href="App/bts_css/bootstrap.css" />
     <link rel="stylesheet" href="App/bts_css/personal.css" />
+
+    <style type="text/css">
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container2{
+            width: inherit;
+            height: inherit;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
-
-
 <body>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="margin-top: 20px; position: relative; right: 6px;">
         <h1>Slot Machine</h1>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="position: relative; right: 6px;">
         <h3 style="font-size:15px">Select a meeting room to display</h3>
     </div>
     <br /><br />
-    <div class="container">
+    <div class="container2">
+        <table style="width: auto; position: relative; right: 20px;">
+            <tr>
+                <td><img src="App/Images/assemblyCard.png" class="img-responsive myImage" width="50" height="100" onclick="changeRoomAdmin('15000b65-4d66-4d8a-9a03-980bed8be18c')" /></td>
+                <td><img src="App/Images/appleCard.png" class="img-responsive  myImage" width="200" height="280" onclick="changeRoomAdmin('dc7cdcb3-414c-44ab-a13c-1e911ba05e17')" /></td>
+            </tr>
+            <tr>
+                <td><img src="App/Images/windowsCard.png" class="img-responsive myImage" width="200" height="280" onclick="changeRoomAdmin('02e6c55f-0cc9-479b-b7c7-bbc3afc3f10b')" /></td> 
+                <td><img src="App/Images/flexCard.png" class="img-responsive  myImage" width="200" height="280" onclick="changeRoomAdmin('c864d829-4346-417b-9b33-b4b03b387a5e')" /></td>               
+            </tr>
+        </table>
+<!--
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-2">
-                    <!--Assembly-->
                     <img src="App/Images/assemblyCard.png" class="img-responsive myImage" width="200" height="280" onclick="changeRoomAdmin('15000b65-4d66-4d8a-9a03-980bed8be18c')" />
                 </div>
                 <div class="col-md-2 col-sm-2">
-                    <!--iOS-->
                     <img src="App/Images/appleCard.png" class="img-responsive  myImage" width="200" height="280" onclick="changeRoomAdmin('dc7cdcb3-414c-44ab-a13c-1e911ba05e17')" />
                 </div>
             </div>
@@ -34,16 +55,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-2">
-                    <!--WINDOWS-->
                     <img src="App/Images/windowsCard.png" class="img-responsive myImage" width="200" height="280" onclick="changeRoomAdmin('02e6c55f-0cc9-479b-b7c7-bbc3afc3f10b')" />
                 </div>
                 <div class="col-md-2 col-sm-2">
-                    <!--FLEX-->
                     <img src="App/Images/flexCard.png" class="img-responsive  myImage" width="200" height="280" onclick="changeRoomAdmin('c864d829-4346-417b-9b33-b4b03b387a5e')" />
                 </div>
             </div>
         </div>
-
+-->
         <div class="container" id="myFoot">
             <div class="row">
                 <p>Software owned by</p>
