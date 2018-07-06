@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="App/Scripts/admin.js"></script>
+    <script src="App/Scripts/help.js"></script>
+    <script src="App/Scripts/app.js"></script>
+    <script src="App/Scripts/main.js"></script>
+    <script src="App/Scripts/init.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">-->
+  <link rel="stylesheet" href="App/CSS/header.css">
+    <script  src="App/Scripts/header.js"></script>
+    <style type="text/css">
+	   
+        body  {
+             background-image: url("App/Images/crack.jpg");
+			 background-repeat: no-repeat;
+			 background-size: cover;
+             background-color: #cccccc;
+        }
+		
+        h1, table, td, tr {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        td {
+            padding: 6px;
+            text-align: center;
+        }
+
+        tr {
+            font-size: 15px;
+        }
+
+        table {
+            border-radius: 25px;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+			border-collapse:collapse;
+			opacity: 0.8;           
+        }
+
+        .moreInfo {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modalContent {
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            margin-top: 5%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modalHeader {
+            padding: 2px 16px;
+            background-color: black;
+            color: white;
+            height: 120px;
+            border-radius: 10px 10px 0px 0px;
+            margin-bottom: 0px;
+        }
+
+        .modalBody {
+            padding: 2px 16px;
+            background-color: white;
+            height: auto;
+        }
+
+        .modalFooter {
+            padding: 2px 16px;
+            background-color: black;
+            color: white;
+            height: 60px;
+            border-radius: 0px 0px 10px 10px;
+        }
+		
+		tr.smaller{
+			line-height: 2px;
+		}
+    </style>
+</head>
+
+<body onload="checkInit()">
+    <header style="text-align: center" id="head">
+        <span><img src="App/Images/baseline_settings_white_48dp.png" alt="SETTINGS" height="10%" width="10%" style="float: right;padding-right: 20px" onclick="document.getElementById('modal-wrapper').style.display='block'"></span><span><h1 id="date"></h1><h1 id="room"></h1></span>
+    </header>
+
+    <div style="padding-top: 120px">
+        <table id="bookingTable" align="center" border="1" style="width: 95%">
+            <tr>
+                <th>Time</th>
+                <th>Availability</th>
+            </tr>
+            <tr>
+                <td width="30%;">07:00 - 08:00</td>
+                <td id="07" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="071" onclick="popup('071')"></td></tr>
+                        <tr class="smaller"><td id="072" onclick="popup('072')"></td></tr>
+                        <tr class="smaller"><td id="073" onclick="popup('073')"></td></tr>
+                        <tr class="smaller"><td id="074" onclick="popup('074')"></td></tr>
+						<tr class="smaller"><td id="075" onclick="popup('075')"></td></tr>
+                        <tr class="smaller"><td id="076" onclick="popup('076')"></td></tr>
+                        <tr class="smaller"><td id="077" onclick="popup('077')"></td></tr>
+                        <tr class="smaller"><td id="078" onclick="popup('078')"></td></tr>
+                        <tr class="smaller"><td id="079" onclick="popup('079')"></td></tr>
+                        <tr class="smaller"><td id="0710" onclick="popup('0710')"></td></tr>
+                        <tr class="smaller"><td id="0711" onclick="popup('0711')"></td></tr>
+                        <tr class="smaller"><td id="0712" onclick="popup('0712')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">08:00 - 09:00</td>
+                <td id="08" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="081" onclick="popup('081')"></td></tr>
+                        <tr class="smaller"><td id="082" onclick="popup('082')"></td></tr>
+                        <tr class="smaller"><td id="083" onclick="popup('083')"></td></tr>
+                        <tr class="smaller"><td id="084" onclick="popup('084')"></td></tr>
+						<tr class="smaller"><td id="085" onclick="popup('085')"></td></tr>
+                        <tr class="smaller"><td id="086" onclick="popup('086')"></td></tr>
+                        <tr class="smaller"><td id="087" onclick="popup('087')"></td></tr>
+                        <tr class="smaller"><td id="088" onclick="popup('088')"></td></tr>
+                        <tr class="smaller"><td id="089" onclick="popup('089')"></td></tr>
+                        <tr class="smaller"><td id="0810" onclick="popup('0810')"></td></tr>
+                        <tr class="smaller"><td id="0811" onclick="popup('0811')"></td></tr>
+                        <tr class="smaller"><td id="0812" onclick="popup('0812')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">09:00 - 10:00</td>
+                <td id="09" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="091" onclick="popup('091')"></td></tr>
+                        <tr class="smaller"><td id="092" onclick="popup('092')"></td></tr>
+                        <tr class="smaller"><td id="093" onclick="popup('093')"></td></tr>
+                        <tr class="smaller"><td id="094" onclick="popup('094')"></td></tr>
+						<tr class="smaller"><td id="095" onclick="popup('095')"></td></tr>
+                        <tr class="smaller"><td id="096" onclick="popup('096')"></td></tr>
+                        <tr class="smaller"><td id="097" onclick="popup('097')"></td></tr>
+                        <tr class="smaller"><td id="098" onclick="popup('098')"></td></tr>
+                        <tr class="smaller"><td id="099" onclick="popup('099')"></td></tr>
+                        <tr class="smaller"><td id="0910" onclick="popup('0910')"></td></tr>
+                        <tr class="smaller"><td id="0911" onclick="popup('0911')"></td></tr>
+                        <tr class="smaller"><td id="0912" onclick="popup('0912')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">10:00 - 11:00</td>
+                <td id="10" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="101" onclick="popup('101')"></td></tr>
+                        <tr class="smaller"><td id="102" onclick="popup('102')"></td></tr>
+                        <tr class="smaller"><td id="103" onclick="popup('103')"></td></tr>
+                        <tr class="smaller"><td id="104" onclick="popup('104')"></td></tr>
+						<tr class="smaller"><td id="105" onclick="popup('105')"></td></tr>
+                        <tr class="smaller"><td id="106" onclick="popup('106')"></td></tr>
+                        <tr class="smaller"><td id="107" onclick="popup('107')"></td></tr>
+                        <tr class="smaller"><td id="108" onclick="popup('108')"></td></tr>
+                        <tr class="smaller"><td id="109" onclick="popup('109')"></td></tr>
+                        <tr class="smaller"><td id="1010" onclick="popup('1010')"></td></tr>
+                        <tr class="smaller"><td id="1011" onclick="popup('1011')"></td></tr>
+                        <tr class="smaller"><td id="1012" onclick="popup('1012')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">11:00 - 12:00</td>
+                <td id="11" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="111" onclick="popup('111')"></td></tr>
+                        <tr class="smaller"><td id="112" onclick="popup('112')"></td></tr>
+                        <tr class="smaller"><td id="113" onclick="popup('113')"></td></tr>
+                        <tr class="smaller"><td id="114" onclick="popup('114')"></td></tr>
+						<tr class="smaller"><td id="115" onclick="popup('115')"></td></tr>
+                        <tr class="smaller"><td id="116" onclick="popup('116')"></td></tr>
+                        <tr class="smaller"><td id="117" onclick="popup('117')"></td></tr>
+                        <tr class="smaller"><td id="118" onclick="popup('118')"></td></tr>
+                        <tr class="smaller"><td id="119" onclick="popup('119')"></td></tr>
+                        <tr class="smaller"><td id="1110" onclick="popup('1110')"></td></tr>
+                        <tr class="smaller"><td id="1111" onclick="popup('1111')"></td></tr>
+                        <tr class="smaller"><td id="1112" onclick="popup('1112')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">12:00 - 13:00</td>
+                <td id="12" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="121" onclick="popup('121')"></td></tr>
+                        <tr class="smaller"><td id="122" onclick="popup('122')"></td></tr>
+                        <tr class="smaller"><td id="123" onclick="popup('123')"></td></tr>
+                        <tr class="smaller"><td id="124" onclick="popup('124')"></td></tr>
+						<tr class="smaller"><td id="125" onclick="popup('125')"></td></tr>
+                        <tr class="smaller"><td id="126" onclick="popup('126')"></td></tr>
+                        <tr class="smaller"><td id="127" onclick="popup('127')"></td></tr>
+                        <tr class="smaller"><td id="128" onclick="popup('128')"></td></tr>
+                        <tr class="smaller"><td id="129" onclick="popup('129')"></td></tr>
+                        <tr class="smaller"><td id="1210" onclick="popup('1210')"></td></tr>
+                        <tr class="smaller"><td id="1211" onclick="popup('1211')"></td></tr>
+                        <tr class="smaller"><td id="1212" onclick="popup('1212')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">13:00 - 14:00</td>
+                <td id="13" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="131" onclick="popup('131')"></td></tr>
+                        <tr class="smaller"><td id="132" onclick="popup('132')"></td></tr>
+                        <tr class="smaller"><td id="133" onclick="popup('133')"></td></tr>
+                        <tr class="smaller"><td id="134" onclick="popup('134')"></td></tr>
+						<tr class="smaller"><td id="135" onclick="popup('135')"></td></tr>
+                        <tr class="smaller"><td id="136" onclick="popup('136')"></td></tr>
+                        <tr class="smaller"><td id="137" onclick="popup('137')"></td></tr>
+                        <tr class="smaller"><td id="138" onclick="popup('138')"></td></tr>
+                        <tr class="smaller"><td id="139" onclick="popup('139')"></td></tr>
+                        <tr class="smaller"><td id="1310" onclick="popup('1310')"></td></tr>
+                        <tr class="smaller"><td id="1311" onclick="popup('1311')"></td></tr>
+                        <tr class="smaller"><td id="1312" onclick="popup('1312')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">14:00 - 15:00</td>
+                <td id="14" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="141" onclick="popup('141')"></td></tr>
+                        <tr class="smaller"><td id="142" onclick="popup('142')"></td></tr>
+                        <tr class="smaller"><td id="143" onclick="popup('143')"></td></tr>
+                        <tr class="smaller"><td id="144" onclick="popup('144')"></td></tr>
+						<tr class="smaller"><td id="145" onclick="popup('145')"></td></tr>
+                        <tr class="smaller"><td id="146" onclick="popup('146')"></td></tr>
+                        <tr class="smaller"><td id="147" onclick="popup('147')"></td></tr>
+                        <tr class="smaller"><td id="148" onclick="popup('148')"></td></tr>
+                        <tr class="smaller"><td id="149" onclick="popup('149')"></td></tr>
+                        <tr class="smaller"><td id="1410" onclick="popup('1410')"></td></tr>
+                        <tr class="smaller"><td id="1411" onclick="popup('1411')"></td></tr>
+                        <tr class="smaller"><td id="1412" onclick="popup('1412')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">15:00 - 16:00</td>
+                <td id="15" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="151" onclick="popup('151')"></td></tr>
+                        <tr class="smaller"><td id="152" onclick="popup('152')"></td></tr>
+                        <tr class="smaller"><td id="153" onclick="popup('153')"></td></tr>
+                        <tr class="smaller"><td id="154" onclick="popup('154')"></td></tr>
+						<tr class="smaller"><td id="155" onclick="popup('155')"></td></tr>
+                        <tr class="smaller"><td id="156" onclick="popup('156')"></td></tr>
+                        <tr class="smaller"><td id="157" onclick="popup('157')"></td></tr>
+                        <tr class="smaller"><td id="158" onclick="popup('158')"></td></tr>
+                        <tr class="smaller"><td id="159" onclick="popup('159')"></td></tr>
+                        <tr class="smaller"><td id="1510" onclick="popup('1510')"></td></tr>
+                        <tr class="smaller"><td id="1511" onclick="popup('1511')"></td></tr>
+                        <tr class="smaller"><td id="1512" onclick="popup('1512')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">16:00 - 17:00</td>
+                <td id="16" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="161" onclick="popup('161')"></td></tr>
+                        <tr class="smaller"><td id="162" onclick="popup('162')"></td></tr>
+                        <tr class="smaller"><td id="163" onclick="popup('163')"></td></tr>
+                        <tr class="smaller"><td id="164" onclick="popup('164')"></td></tr>
+						<tr class="smaller"><td id="165" onclick="popup('165')"></td></tr>
+                        <tr class="smaller"><td id="166" onclick="popup('166')"></td></tr>
+                        <tr class="smaller"><td id="167" onclick="popup('167')"></td></tr>
+                        <tr class="smaller"><td id="168" onclick="popup('168')"></td></tr>
+                        <tr class="smaller"><td id="169" onclick="popup('169')"></td></tr>
+                        <tr class="smaller"><td id="1610" onclick="popup('1610')"></td></tr>
+                        <tr class="smaller"><td id="1611" onclick="popup('1611')"></td></tr>
+                        <tr class="smaller"><td id="1612" onclick="popup('1612')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">17:00 - 18:00</td>
+                <td id="17" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="171" onclick="popup('171')"></td></tr>
+                        <tr class="smaller"><td id="172" onclick="popup('172')"></td></tr>
+                        <tr class="smaller"><td id="173" onclick="popup('173')"></td></tr>
+                        <tr class="smaller"><td id="174" onclick="popup('174')"></td></tr>
+						<tr class="smaller"><td id="175" onclick="popup('175')"></td></tr>
+                        <tr class="smaller"><td id="176" onclick="popup('176')"></td></tr>
+                        <tr class="smaller"><td id="177" onclick="popup('177')"></td></tr>
+                        <tr class="smaller"><td id="178" onclick="popup('178')"></td></tr>
+                        <tr class="smaller"><td id="179" onclick="popup('179')"></td></tr>
+                        <tr class="smaller"><td id="1710" onclick="popup('1710')"></td></tr>
+                        <tr class="smaller"><td id="1711" onclick="popup('1711')"></td></tr>
+                        <tr class="smaller"><td id="1712" onclick="popup('1712')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td width="30%;">18:00 - 19:00</td>
+                <td id="18" style="padding: 0px;">
+                    <table align="center" style="padding: 0px;">
+                        <tr class="smaller"><td id="181" onclick="popup('181')"></td></tr>
+                        <tr class="smaller"><td id="182" onclick="popup('182')"></td></tr>
+                        <tr class="smaller"><td id="183" onclick="popup('183')"></td></tr>
+                        <tr class="smaller"><td id="184" onclick="popup('184')"></td></tr>
+						<tr class="smaller"><td id="185" onclick="popup('185')"></td></tr>
+                        <tr class="smaller"><td id="186" onclick="popup('186')"></td></tr>
+                        <tr class="smaller"><td id="187" onclick="popup('187')"></td></tr>
+                        <tr class="smaller"><td id="188" onclick="popup('188')"></td></tr>
+                        <tr class="smaller"><td id="189" onclick="popup('189')"></td></tr>
+                        <tr class="smaller"><td id="1810" onclick="popup('1810')"></td></tr>
+                        <tr class="smaller"><td id="1811" onclick="popup('1811')"></td></tr>
+                        <tr class="smaller"><td id="1812" onclick="popup('1812')"></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--ADMIN POPUP BOX-->
+    <style>
+        *
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 90%;
+            padding: 5px 5px;
+            text-align: center;
+            margin: 5px 5px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #ce171f;
+            color: white;
+            padding: 10px 10px;
+            margin: 5px 5px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            width: 90%;
+            font-size: 20px;
+        }
+
+            button:hover {
+                opacity: 0.8;
+            }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 2px 0;
+            position: relative;
+        }
+
+        .avatar {
+            width: 300px;
+            height: 100px;
+            border-radius: 10%;
+            margin-bottom: 5px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Modal Content Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 4% auto 15% auto;
+            border: 1px solid #888;
+            text-align: center;
+            border-radius: 3%;
+            width: 80%;
+            padding-bottom: 15px;
+            z-index: 9999;
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+            .close:hover, .close:focus {
+                color: red;
+                cursor: pointer;
+            }
+
+        /* Add Zoom Animation */
+        .animate {
+            animation: zoom 0.6s
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        #formPopup {
+            top: 25%;
+            position: absolute;
+            align-content: center;
+            left: 10%
+        }
+    </style>
+    <div id="modal-wrapper" class="modal">
+
+        <form class="modal-content animate" id="formPopup">
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Cancel">&times;</span>
+                <img src="App/Images/bbd.png" alt="Avatar" class="avatar">
+                <h2 style="font-size:medium">Authentication required to access this content</h2>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Username" id="uname">
+                <input type="password" placeholder="Password" id="psw">
+                <button type="reset" onclick="promptAdmin()">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+        // If user clicks anywhere outside of the modal, Modal will close
+        var modal = document.getElementById('modal-wrapper');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <div id="moreInfo" class="moreInfo">
+        <div class="modalContent" style="width: 60%; border-radius: 10px;" align="center">
+            <div class="modalHeader" style="text-align: center;">
+                <span class="close" onclick="hiddenModal()">&times;</span>
+                <h3 style="text-align: center; font-size: 30px; font-family: Arial, Helvetica, sans-serif;">Meeting Information</h3>
+                <div style="background-color: red; height: 30px; width: 100%;"><p></p></div>
+            </div>
+            <div class="modalBody">
+                <p id="today" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; padding-top: 20px;"></p>
+                <!-- <p id="roomName" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;"></p> -->
+                <p id="time" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;"></p>
+                <p id="subject" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;"></p>
+                <p id="organizer" style="font-family: Arial, Helvetica, sans-serif; font-size: 20px;"></p>
+            </div>
+            <div class="modalFooter">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
